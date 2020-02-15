@@ -1,0 +1,56 @@
+<!-- //不转义的HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="template.js"></script>
+</head>
+<body>
+<h1>不转义HTML</h1>
+<div id="content"></div>
+<script id="test" type="text/html">
+    <p>不转义：{{#value}}</p>
+    <p>默认转义：{{value}}</p>
+</script>
+<script>
+    var data = {
+        value: '<span style="color:#F00">hello world!</span>'
+    };
+    var html = template('test',data);
+    document.getElementById('content').innerHTML = html;
+</script>
+</body>
+</html> -->
+<!-- JavaScript中存放模板
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="template.js"></script>
+</head>
+<body>
+    <h1>在JavaScript中存放模板</h1>
+    <div id='content'></div>
+    <script>
+        var source = '<ul>'+'{{each list as value i}}' + '<li>索引{{i+1}} : {{value}}</li>'+
+            '{{/each}}' + '</ul>';
+            //根据模板生成渲染函数，compile方法返回值是一个函数
+        var render = template.compile(source);
+            //render 的作用就是用数据渲染静态标签内容
+        var html = render({
+            list: ['摄影','电影','民谣','旅行','吉他']
+        });
+        document.getElementById('content').innerHTML = html;
+        </script>
+
+    </script>
+</body>
+</html>
+ -->
+  

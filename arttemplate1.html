@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./template.js"></script>
+    <script type="text/html" id="template">  
+        <h1>{{title}}</h1>
+        {{if books}}
+           {{each books as value}}
+               <div>{{value}}</div>
+            {{/each}}
+        {{/if}}
+    </script>
+        <script type="text/javascript">
+        window.onload = function(){
+        var data = {
+            title : '图书信息',
+            books : ['三国演义','水浒传','西游记','红楼梦']
+        }
+        var html = template('template',data);
+        var con = document.getElementById('container');
+        con.innerHTML = html;
+    }
+
+      
+    </script>
+    
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
